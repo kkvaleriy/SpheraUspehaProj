@@ -1,0 +1,19 @@
+<!--    ЭТО ПРАВАЯ КОЛОНКА РЕКЛАМЫ -->
+            <div class="col" >
+                <div class="card my-4 bg-dark">
+                    <h5 class="card-header">Другая техника</h5>
+                    {% for ad in ads %}
+                    <div class="card-body">
+                        <img class="img-fluid rounded" src="{{ad.image.url}}">
+                        <h5 class="card-title">{{ad.h1}}</h5>
+                        <p class="card-text">{{ad.description | safe}}</p>
+                        <p class="card-text">{{ad.price}}</p>
+                        <a href="/product/{{.url}}" class="btn btn-primary">Подробнее</a>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

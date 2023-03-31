@@ -1,0 +1,8 @@
+.idea
+venv
+db*
+static
+media
+TlgrmBot.py
+migrations
+settings.py

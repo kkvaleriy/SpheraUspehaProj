@@ -1,0 +1,72 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}{{post.title}}{% endblock %}
+{% block header %}
+    <div class="container-fluid home-slider">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-color: #343a40!important">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>{{post.title}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{post.title}}</li>
+                    </ol>
+                </nav>
+    <!--    ЭТО ТЕЛО ПРОДУКТА -->
+                <div id="carouselProductCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselProductCaptions" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselProductCaptions" data-slide-to="1"></li>
+          <li data-target="#carouselProductCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="height: 30rem;">
+            <img src="{{post.image.url}}" class="d-block w-100" alt="">
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+          </div>
+            <div class="carousel-item" style="height: 30rem;">
+            <img src="{{post.image2.url}}" class="d-block w-100" alt="{{post.title}}">
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+          </div>
+          <div class="carousel-item" style="height: 30rem;">
+            <img src="{{post.image3.url}}" class="d-block w-100" alt="{{post.price}}">
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselProductCaptions" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselProductCaptions" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+                <hr>
+                <p class="lead">{{post.title}}</p>
+                <p>{{post.discription | safe}}</p>
+                <p>{{post.content | safe}}</p>
+                <hr>
+                <p class="lead text-right">Стоимость: {{post.price}}</p>
+                <hr>
+    <!--    ЭТО КОМПОНЕНТ С обратной связью -->
+                <a href="/order" class="btn btn-success w-100">Заказать</a>
+            </div>
+        {% include './blocks/ad.html' %}
+    <br>
+{% endblock %}
